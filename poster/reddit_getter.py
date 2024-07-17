@@ -1,6 +1,10 @@
 import praw
 import random
 from transformers import pipeline
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 classifier = pipeline("sentiment-analysis", model="michellejieli/NSFW_text_classifier")
 def is_sfw(text):
@@ -10,11 +14,11 @@ def get_text():
         
 
     reddit = praw.Reddit(
-        client_id='YnYwz0znuWaZz15D3YS-0Q',
-        client_secret='__kNNUSuPyQeWn54NSsTmNwX_0GAxw',
-        user_agent='Rahu',
-        username='The-Meme-Thief6969',
-        password='F0otball',
+        client_id=os.getenv('CLIENT_ID'),
+        client_secret=os.getenv('CLIENT_SECRET'),
+        user_agent=os.getenv('USER_AGENT'),
+        username=os.getenv('USERNAME'),
+        password=os.getenv('PASSWORD'),
     )
 
     subreddits = ['confession']

@@ -2,6 +2,7 @@ from reddit_getter import get_text
 import subprocess
 from editor import editor
 from deleter import deleter
+import time
 
 def driver():
     text, title = get_text()
@@ -26,4 +27,6 @@ def driver():
     return True
 
 if __name__ == '__main__':
-    driver()
+    while(True):
+        driver()
+        time.sleep(600)
